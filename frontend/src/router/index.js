@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import AuthView from '../views/authView.vue';
+import AuthView from '../views/AuthView.vue';
 import DashboardView from '@/views/DashboardView.vue';
-import NewTravelView from '@/views/newtravelView.vue';
+import NewTravelView from '@/views/NewTravelView.vue';
 import editTravel from '@/components/editTravel.vue';
 
 const router = createRouter({
@@ -21,7 +21,7 @@ const router = createRouter({
     { 
       path: '/editTravel/:id',
       name: 'editTravel', 
-      component: editTravel 
+      component: editTravel, 
     },
     {
       path: '/newtravel',
@@ -29,10 +29,10 @@ const router = createRouter({
       component: NewTravelView, 
       meta: { requiresAuth: true }
     },
-    // Aggiunta una rotta "catch-all" per gestire rotte non esistenti
+   
     {
-      path: '/:pathMatch(.*)*',
-      redirect: '/dashboard'
+      path: '/', // rotta predefinita
+      redirect: '/auth' 
     }
   ],
 });

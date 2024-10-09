@@ -1,5 +1,6 @@
 <template>
     <div class="container mt-5">
+     
       <h2 class="text-center mb-4">Your Dashboard</h2>
   
       <div class="row">
@@ -31,6 +32,7 @@
   import { ref, onMounted } from 'vue';
   import { useRouter } from 'vue-router'; 
   import { getUserTravels, deleteTravel, } from '../api/travel';
+  import '../assets/dashboard.css';
   
   const router = useRouter(); 
   const trips = ref([]);
@@ -66,60 +68,10 @@
   
   onMounted(() => {
     loadTrips();
+    
   });
-
   </script>
   
-  <style scoped>
-  .card {
-    height: 100%;
-    border-radius: 20px;
-    background-color:#fcfefe;
-}
-  .card .btn {
-     font-size: 1.2rem;
-     font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  }
   
-  .card-body {
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  }
   
-  button {
-    width: 300px;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    }
-    @media (max-width: 576px) {
-        
-    h2{
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 28px;
-  font-weight: bold;
-    }
-    .card .btn {
-     font-size:17px; 
-  }
-  
-  .card-title{
-    font-size: 15px;
-  }
-
-  .card-text{
-    font-size: 15px;
-  }
-   button {
-    width: 300px;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    }
-    }
-  </style>
   

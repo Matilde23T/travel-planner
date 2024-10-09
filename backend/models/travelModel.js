@@ -22,17 +22,17 @@ const TravelSchema = new mongoose.Schema({
     type: Number
   },
   participants: {
-    type: [String],  // Lista dei partecipanti
+    type: [String],  
   },
   description: {
-    type: String,  // Descrizione del viaggio
-    required: true  // Puoi rendere questo campo obbligatorio
+    type: String,  
+    required: true  
   },
   notes: {
     type: String
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId,  // Associa il viaggio all'utente
+    type: mongoose.Schema.Types.ObjectId,  
     ref: 'User',
     required: true
   }

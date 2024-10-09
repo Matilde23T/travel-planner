@@ -1,6 +1,9 @@
 @import './base.css';
 
 body{
-  background: rgb(162,234,255);
+ /*background: rgb(162,234,255);
   background: linear-gradient(90deg, rgba(162,234,255,1) 0%, rgba(126,243,239,1) 35%, rgba(2,136,163,1) 100%);
+ /* background-color: rgba(123, 218, 237, 1);
+background-image: linear-gradient(90deg, rgba(123, 218, 237, 1) 0%, rgba(47, 77, 162, 1) 100%);*/
+background-image: linear-gradient(90deg, rgba(115, 248, 224, 1), rgba(150, 167, 241, 1));
 }

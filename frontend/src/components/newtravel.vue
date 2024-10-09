@@ -54,7 +54,7 @@
         <MapView />
       </div>
 
-      <button type="submit" class="btn btn-primary">Change travel plan</button>
+      <button type="submit" class="btn btn-primary">Create travel plan</button>
     </form>
   </div>
 
@@ -65,6 +65,7 @@
   import { useRouter } from 'vue-router';
   import { createTravel } from '../api/travel'; 
   import MapView from '@/components/mapView.vue';
+  import '../assets/newtravel.css';
  
   
   
@@ -111,35 +112,4 @@ const submitForm = async () => {
   </script>  
   
   
-  
-  <style scoped>
-  .invisible-input {
-    border: none;
-    background: none;
-    outline: none;
-    font-size: inherit;
-    color: inherit;
-    width: auto;
-    display: inline;
-  }
-  
-  .invisible-input::placeholder {
-    color: #aaa;
-  }
-
-  @media (max-width: 576px) {
-  .form-control {
-    font-size: 15px; 
-    width: 100%;
-  }
-
-  h2 {
-    font-size: 34px;
-    }
-
-  button {
-    font-size: 16px; 
-  }
-}
-  </style>
   

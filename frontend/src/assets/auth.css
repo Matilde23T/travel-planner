@@ -1,0 +1,123 @@
+
+/*dati nel div di registrazione*/
+.box-dates{
+  
+    padding:50px 40px;
+    border-radius: 30px;
+    border-width: 10px;
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+  
+  .title{
+  margin-bottom: 30px;
+  font-size: 80px;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  }
+  /*titolo di entrata*/
+  .subtitle{
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  }
+  /*nominativi login o register sopra il riquadro*/
+  .actions{
+      font-size: 24px;
+      font-weight: bold !important;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      margin-bottom: -20px;
+      
+  }
+  .userdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  text-align: center;
+  padding: 20px;
+     
+    }
+    
+   .userform {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+    }
+    
+  input, button {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+    }
+    
+  button {
+  background-color: #007BFF;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+    }
+    
+  button:hover {
+  background-color: #0056b3;
+    }
+    
+  button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+    }
+  
+  #footer-section{
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  }
+    
+  #footer-section p{
+  font-size: 14px;
+  padding-top: 10px;
+  padding-right: 10px;
+  color: white;
+   }
+  
+  #footer-section .icons{
+  text-decoration: none;
+  color: white;
+   }
+   #footer-section a:hover i {
+    
+   transform: translateY(-10px);
+         }
+  
+   
+         @media (max-width: 576px) {
+    
+  .title{
+      font-size: 45px;
+  }
+  .subtitle{
+      font-size: 20px;
+      font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+  
+  
+  
+         }
+  
