@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5002/travelplanner/travels';
+const API_URL = process.env.VUE_APP_API_URL;
 
 // Funzione per ottenere i viaggi dell'utente
 export const getUserTravels = async () => {
