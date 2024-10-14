@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-5">
      
-      <h2 class="text-center mb-4">Your Dashboard</h2>
+      <h2 class="text-center mb-4" id="title-dash">Your Dashboard</h2>
   
       <div class="row">
         <!-- viaggi pianificati -->
@@ -43,6 +43,7 @@
       trips.value = data;
     } catch (error) {
       console.error('error loading trip data:', error);
+      router.push({ name: 'auth'});
     }
   };
   

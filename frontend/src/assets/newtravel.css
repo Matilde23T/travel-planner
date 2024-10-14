@@ -1,3 +1,21 @@
+#quit-btn{
+  justify-content: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px 20px; 
+  text-align: center;
+  gap: 5px;
+}
+
+#quit-btn p{
+  font-size: 15px;
+  margin: 0;
+  }
+
+
+/*TITOLO*/
 .invisible-input {
     border: none;
     background: none;
@@ -6,26 +24,77 @@
     color: inherit;
     width: auto;
     display: inline;
+    white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   }
   
   .invisible-input::placeholder {
     color: #aaa;
   }
+
 .form-control{
-    
-   
+  width: 100% !important ;       
+  overflow-x: hidden;       
+  padding: 10px;             
+  font-size: 16px;          
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+ 
 }
-  @media (max-width: 576px) {
+
+textarea.form-control {
+    overflow: hidden;          
+    resize: vertical;         
+    min-height: 60px;    
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;   
+  }
+  
+  
+  .form-label {
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  input.form-control{
+    min-width:100%;      
+    overflow-x: hidden;       
+    padding: 10px;             
+    font-size: 16px;          
+    box-sizing: border-box;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;   
+    
+  }
+
+ #create-btn {
+    margin-top: 30px;
+    font-size: 20px;
+    border-radius: 20px;
+    
+ }
+
+ 
+ 
+ @media (max-width: 576px) {
+
+  
   .form-control {
     font-size: 15px; 
     width: 100%;
   }
 
   h2 {
-    font-size: 34px;
+    font-size: 25px;
     }
 
-  button {
-    font-size: 16px; 
-  }
+    .form-label {
+      width: 100%;
+      font-weight: bold;
+      font-size: 16px;
+    }
+   
 }

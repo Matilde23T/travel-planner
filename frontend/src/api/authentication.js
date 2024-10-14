@@ -1,9 +1,9 @@
-// src/api/authentication.js
+
 
 import axios from 'axios';
 
-// Imposta l'URL di base per le richieste API
-const API_URL = 'http://localhost:5002/travelplanner/auth'; // URL base per le rotte di autenticazione
+
+const API_URL = 'http://localhost:5002/travelplanner/auth'; 
 
 // Funzione per registrare un nuovo utente
 export const registerUser = async (userData) => {

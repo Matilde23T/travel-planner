@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AuthView from '../views/AuthView.vue';
 import DashboardView from '@/views/DashboardView.vue';
 import NewTravelView from '@/views/NewTravelView.vue';
-import editTravel from '@/components/editTravel.vue';
+import EditTravelView from '@/views/EditTravelView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,7 +21,8 @@ const router = createRouter({
     { 
       path: '/editTravel/:id',
       name: 'editTravel', 
-      component: editTravel, 
+      component: EditTravelView, 
+      meta: { requiresAuth: true }
     },
     {
       path: '/newtravel',
@@ -39,13 +40,11 @@ const router = createRouter({
 
 // controlla l'autenticazione
 router.beforeEach((to, from, next) => {
-  // Verifica se il token di autenticazione è presente
-  const isAuthenticated = !!localStorage.getItem('token'); 
+const isAuthenticated = !!localStorage.getItem('token'); 
 
-  // Controlla se la rotta richiede autenticazione
+  //verifica del autenticazione richiesta dalla rotta
   if (to.meta.requiresAuth && !isAuthenticated) {
-    // Se non autenticato, reindirizza alla pagina di login
-    next({ name: 'auth' });
+   next({ name: 'auth' });
   } else {
    
     next();

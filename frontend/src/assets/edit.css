@@ -4,9 +4,13 @@
     outline: none;
     font-size: inherit;
     color: inherit;
-    /*width: auto;*/
-    width: 100%;
+    width: auto;
     display: inline;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
   
   .invisible-input::placeholder {
@@ -14,8 +18,46 @@
   }
 
   .form-control{
-    width: 400px;
+    width: 100% !important ;       
+  overflow-x: hidden;       
+  padding: 10px;             
+  font-size: 16px;          
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+ 
   }
+
+  textarea.form-control {
+    overflow: hidden;          
+    resize: vertical;         
+    min-height: 60px;    
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;   
+  }
+
+  .form-label {
+     width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+input.form-control{
+    min-width:100%;      
+    overflow-x: hidden;       
+    padding: 10px;             
+    font-size: 16px;          
+    box-sizing: border-box;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;   
+    
+  }
+  #change-btn {
+    margin-top: 30px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+
+  
 
   @media (max-width: 576px) {
   .form-control {
@@ -24,7 +66,7 @@
   }
 
   h2 {
-    font-size: 34px;
+    font-size: 25px;
     }
 
   button {

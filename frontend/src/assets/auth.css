@@ -1,7 +1,5 @@
 
-/*dati nel div di registrazione*/
 .box-dates{
-  
     padding:50px 40px;
     border-radius: 30px;
     border-width: 10px;
@@ -34,6 +32,10 @@
       font-style: normal;
       margin-bottom: -20px;
       
+  }
+
+  #p-load{
+    margin-top: 20px;
   }
   .userdiv {
   display: flex;
@@ -79,13 +81,13 @@
   background-color: #cccccc;
   cursor: not-allowed;
     }
-  
-  #footer-section{
-  height: 40px;
-  display: flex;
-  justify-content: end;
-  }
-    
+
+  #footer-section {
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }  
   #footer-section p{
   font-size: 14px;
   padding-top: 10px;
@@ -102,22 +104,38 @@
    transform: translateY(-10px);
          }
   
-   
-         @media (max-width: 576px) {
+         .wrapper {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+        .content {
+          flex: 1;
+        }
+        
+       
+       
+         
+ @media (max-width: 576px) {
     
   .title{
-      font-size: 45px;
+      font-size: 50px;
   }
   .subtitle{
-      font-size: 20px;
-      font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
+  .box-dates{
+    margin-top: 30px;
+    padding:40px 30px;
+    border-radius: 30px;
+    border-width: 10px;
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    
+  }
   
-  
-  
-  
-  
-         }
-  
+ }
+ 

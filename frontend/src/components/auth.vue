@@ -1,60 +1,58 @@
 <template>
-    <div class="userdiv">
-        <h1 class="title">Travel Planner</h1>
-        <div class="box-dates"> 
-      <h2 class="subtitle">To enter and use Travel Planner you need to login or register</h2>
-      
-      <p class="actions">{{ isLogin ? 'Login' : 'Register' }}</p> 
-      <br>
-      <div class="userform">
-        <form @submit.prevent="handleSubmit">
-          <!-- Campo "Nome" presente solo in registrazione-->
-          <input
-            v-if="!isLogin"
-            type="text"
-            v-model="name"
-            placeholder="Name"
-            required
-          />
-          <br>
-          <input
-            type="email"
-            v-model="email"
-            placeholder="Email"
-            required
-          />
-          <br>
-          <input
-            type="password"
-            v-model="password"
-            placeholder="Password"
-            required
-          />
-          <br>
-          <button type="submit" :disabled="loading">{{ isLogin ? 'Login' : 'Register' }}</button>
-          <br>
-          <button type="button" @click="toggleForm">
-            {{ isLogin ? 'switch to register' : 'switch to login' }}
-          </button>
-        </form>
-      </div>
+    <div class="wrapper">
+      <div class="content">
+        <div class="userdiv">
+          <h1 class="title">Travel Planner</h1>
+          <div class="box-dates"> 
+            <h2 class="subtitle">To enter and use Travel Planner you need to login or register</h2>
+            <p class="actions">{{ isLogin ? 'Login' : 'Register' }}</p> 
+            <br>
+            <div class="userform">
+              <form @submit.prevent="handleSubmit">
+                <input
+                  v-if="!isLogin"
+                  type="text"
+                  v-model="name"
+                  placeholder="Name"
+                  required
+                />
+                <br>
+                <input
+                  type="email"
+                  v-model="email"
+                  placeholder="Email"
+                  required
+                />
+                <br>
+                <input
+                  type="password"
+                  v-model="password"
+                  placeholder="Password"
+                  required
+                />
+                <br>
+                <button type="submit" :disabled="loading">{{ isLogin ? 'Login' : 'Register' }}</button>
+                <br>
+                <button type="button" @click="toggleForm">
+                  {{ isLogin ? 'switch to register' : 'switch to login' }}
+                </button>
+              </form>
+            </div>
+          </div>
+          <div v-if="error" class="alert alert-danger">{{ error }}</div>
+          <div v-if="loading" id="p-load">Loading...</div>
         </div>
-      <div v-if="error" class="alert alert-danger">{{ error }}</div>
-      <div v-if="loading">Loading...</div> <!-- Messaggio di caricamento -->
-    </div>
-
-
-    <!------------------footer----------------------------->
-    <footer id="footer-section">
-    <p>© Copyright Matilde Tiengo 2024  
-      <a href="https://github.com/Matilde23T" class="icons">
-        <i class="fa-brands fa-github fa-lg"></i>
-        </a>
-    </p>   
-  </footer> 
+      </div>
   
-
-
+      <!-- Footer -->
+      <footer id="footer-section">
+        <p>© Copyright Matilde Tiengo 2024  
+          <a href="https://github.com/Matilde23T" class="icons">
+            <i class="fa-brands fa-github fa-lg"></i>
+          </a>
+        </p>   
+      </footer>
+    </div>
   </template>
   
   <script setup>
@@ -63,7 +61,7 @@
   import { useRouter } from 'vue-router'; 
   import '../assets/auth.css'; //CSS AUTH
   
-  // Variabili reattive
+  
   const name = ref('');
   const email = ref('');
   const password = ref('');

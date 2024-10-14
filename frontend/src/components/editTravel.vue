@@ -1,22 +1,24 @@
  <template>
 <div class="container mt-5">
     <form @submit.prevent="submitForm">
-   <div class="mb-4">
-    <h2>
-          <input
-            type="text"
-            v-model="trip.title"
-            class="invisible-input"
-            placeholder="Inserisci il titolo ... "
-            @blur="saveInput"
-            @keyup.enter="saveInput"
-            ref="inputField"
-          />
-        </h2>
-      </div>
+      <div class="mb-4">
+  <h1>
+    <textarea
+      v-model="trip.title"
+      class="invisible-input"
+      placeholder="enter the title ..."
+      @blur="saveInput"
+      @keyup.enter="saveInput"
+      ref="inputField"
+      rows="1"
+      style="resize: none; overflow: hidden;" 
+       @input="autoResize"
+    ></textarea>
+  </h1>
+</div>
       <div class="mb-3">
         <label for="destination" class="form-label">Destination</label>
-        <input type="text" v-model="trip.destination" class="form-control" id="destination" required />
+        <input type="text" v-model="trip.destination" class="form-control" @input="autoResize" rows="1"  id="destination" required />
       </div>
       <div class="mb-3">
         <label for="startDate" class="form-label">Start date</label>
@@ -31,30 +33,32 @@
         <input type="number" v-model="trip.budget" class="form-control" id="budget" required />
       </div>
       <div class="mb-3">
-        <label for="participants" class="form-label">Partecipants</label>
+        <label for="participants" class="form-label">Participants</label>
         <input
           type="text"
           v-model="participantsString"
           class="form-control"
           id="participants"
-          placeholder="Inserisci i nomi separati da virgola"
+          placeholder="enter the names separated by commas"
         />
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea v-model="trip.description" class="form-control" id="description" @input="autoResize" rows="1" placeholder="Descrivi il viaggio"></textarea>
+        <textarea v-model="trip.description" class="form-control" id="description" @input="autoResize" rows="1" placeholder="Describe your trip"></textarea>
       </div>
       <div class="mb-3">
         <label for="notes" class="form-label">Notes</label>
-        <textarea v-model="trip.notes" class="form-control" id="notes"></textarea>
+        <textarea v-model="trip.notes" class="form-control" @input="autoResize" rows="1" id="notes"></textarea>
       </div>
 
       <div class="mb-3">
-        <h4>Search for a place on the map</h4>
+        <h3>Search for a place on the map</h3>
         <MapView />
       </div>
 
-      <button type="submit" class="btn btn-primary">Change travel plan</button>
+      <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary" id="change-btn">Change travel plan</button>
+    </div>
     </form>
   </div>
 
@@ -89,13 +93,12 @@
     const travelData = travels.find(travel => travel._id === id); 
   
     if (travelData) {
-      // Converte le date nel formato richiesto
       trip.value = {
         ...travelData,
         startDate: new Date(travelData.startDate).toISOString().split('T')[0], 
         endDate: new Date(travelData.endDate).toISOString().split('T')[0],
       };
-      participantsString.value = travelData.participants.join(', '); // Convertire l'array in stringa
+      participantsString.value = travelData.participants.join(', '); 
     } else {
       console.error('trip not found');
       alert('trip not found');
@@ -114,8 +117,7 @@
       alert('trip data modification error: ' + error.message);
     }
   };
-  
-  // Funzione per ridimensionare automaticamente il textarea
+  //textarea
   const autoResize = (event) => {
     const textarea = event.target;
     textarea.style.height = 'auto'; 
@@ -123,11 +125,9 @@
   };
   
   // Funzione per salvare l'input 
-  const saveInput = () => {
-
-  };
+  const saveInput = () => {};
   
-  // Carica dati del viaggio al montaggio del componente
+  // Carica dati del viaggio 
   onMounted(() => {
     loadTripData();
   });
