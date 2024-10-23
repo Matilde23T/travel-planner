@@ -8,19 +8,10 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5002;
 
-// Consentire le richieste dal dominio del frontend su Vercel
-const allowedOrigins = ['https://travel-planner-neon.vercel.app'];
-
+// Impostare CORS per permettere richieste da qualsiasi origine
 app.use(cors({
-  origin: function (origin, callback) {
-    // Consentire richieste senza origin (come Postman o localhost)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      return callback(new Error('Not allowed by CORS'));
-    }
-    return callback(null, true);
-  },
-  credentials: true 
+  origin: '*', // Permettere richieste da tutte le origini
+  credentials: true // Includere i cookie nelle richieste cross-origin
 }));
 
 // Middleware per parsing JSON
