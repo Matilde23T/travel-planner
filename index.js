@@ -20,7 +20,7 @@ app.use(cors({
     }
     return callback(null, true);
   },
-  credentials: true // Se utilizzi cookie o autenticazione con sessioni
+  credentials: true 
 }));
 
 // Middleware per parsing JSON
