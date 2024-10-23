@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 
-const API_URL = process.env.VUE_APP_API_URL;
+const API_URL = process.env.VUE_APP_API_URL || 'https://travel-planner-neon.vercel.app/travelplanner';
 
 // Funzione per registrare un nuovo utente
 export const registerUser = async (userData) => {

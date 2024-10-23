@@ -45,7 +45,7 @@ app.use('/travelplanner/travels', travelRoutes);
 // Gestione degli errori
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send({ error: 'Qualcosa è andato storto!' });
+  res.status(500).send({ error: 'something went wrong' });
 });
 
 // Avvio del server

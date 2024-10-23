@@ -1,9 +1,8 @@
 {
-    "rewrites":[
-        {
-            "source":"/(.*)",
-            "destination":"/"
-        }
+    "rewrites": [
+      {
+        "source": "/travelplanner/(.*)",
+        "destination": "https://travel-planner-791c.onrender.com/travelplanner/$1"
+      }
     ]
   }
-  
