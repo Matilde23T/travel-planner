@@ -8,10 +8,18 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5002;
 
-// Impostare CORS per permettere richieste da qualsiasi origine
+const allowedOrigins = ['https://travel-planner-6bi6ly6a0-mati-webdevs-projects.vercel.app'];
+
 app.use(cors({
-  origin: '*', // Permettere richieste da tutte le origini
-  credentials: true // Includere i cookie nelle richieste cross-origin
+  origin: function (origin, callback) {
+    // Consentire richieste senza origin (come Postman o localhost)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error('Not allowed by CORS'));
+    }
+    return callback(null, true);
+  },
+  credentials: true 
 }));
 
 // Middleware per parsing JSON
