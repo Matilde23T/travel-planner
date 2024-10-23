@@ -8,10 +8,23 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5002;
 
+// Consentire le richieste dal dominio del frontend su Vercel
+const allowedOrigins = ['https://travel-planner-neon.vercel.app'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Consentire richieste senza origin (come Postman o localhost)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error('Not allowed by CORS'));
+    }
+    return callback(null, true);
+  },
+  credentials: true // Se utilizzi cookie o autenticazione con sessioni
+}));
+
 // Middleware per parsing JSON
 app.use(express.json());
-// Middleware CORS richieste cross-origin
-app.use(cors());
 
 // Connessione MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -19,13 +32,14 @@ mongoose.connect(process.env.MONGODB_URI)
     console.log('Connesso a MongoDB');
   })
   .catch(err => console.error('Errore di connessione a MongoDB:', err));
-//rotte 
+
+// Rotte
 const authRoutes = require('./backend/routes/authRoutes'); 
 const travelRoutes = require('./backend/routes/travelRoutes');
 
-//autenticazione
+// Autenticazione
 app.use('/travelplanner/auth', authRoutes);
-//gestione dei viaggi
+// Gestione dei viaggi
 app.use('/travelplanner/travels', travelRoutes);
 
 // Gestione degli errori
