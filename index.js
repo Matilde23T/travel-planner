@@ -13,7 +13,7 @@ const allowedOrigins = [
   'https://travel-planner-neon.vercel.app'
 ];
 
-app.use(cors({
+/*app.use(cors({
   origin: function (origin, callback) {
     // Consenti richieste senza origin (Postman o localhost)
     if (!origin) return callback(null, true);
@@ -23,8 +23,19 @@ app.use(cors({
     return callback(null, true);
   },
   credentials: true 
+}));*/
+app.use(cors({
+  origin: function (origin, callback) {
+    console.log('Origin:', origin);  // Log dell'origin della richiesta
+    if (!origin) return callback(null, true); // Consente le richieste senza `origin` (Postman o localhost)
+    if (allowedOrigins.indexOf(origin) === -1) {
+      console.error('Blocked by CORS:', origin); // Log quando l'origin è bloccato
+      return callback(new Error('Not allowed by CORS'));
+    }
+    return callback(null, true);
+  },
+  credentials: true 
 }));
-
 // Middleware per parsing JSON
 app.use(express.json());
 
