@@ -9,7 +9,6 @@ const app = express();
 const port = process.env.PORT || 5002;
 
 const allowedOrigins = [
-  'https://travel-planner-5cgj82zzk-mati-webdevs-projects.vercel.app',
   'https://travel-planner-neon.vercel.app'
 ];
 
