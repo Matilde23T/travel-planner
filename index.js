@@ -8,35 +8,27 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5002;
 
+// Imposta gli allowed origins per CORS
 const allowedOrigins = [
   'https://travel-planner-neon.vercel.app'
 ];
 
-
+// Middleware CORS globale
 app.use(cors({
   origin: function (origin, callback) {
-    console.log('Origin:', origin);  // Log dell'origin della richiesta
-    if (!origin) return callback(null, true); // Consente le richieste senza `origin` (Postman o localhost)
+    console.log('Origin:', origin); // Log dell'origin della richiesta
+    if (!origin) return callback(null, true); // Consente le richieste senza `origin`
     if (allowedOrigins.indexOf(origin) === -1) {
       console.error('Blocked by CORS:', origin); // Log quando l'origin è bloccato
       return callback(new Error('Not allowed by CORS'));
     }
     return callback(null, true);
   },
-  credentials: true 
-}));
-
-app.options('*', cors({
-  origin: allowedOrigins,
   credentials: true
 }));
 
-
-
-
-
-
-
+// Risposta globale a tutte le richieste OPTIONS
+app.options('*', (req, res) => res.sendStatus(200));
 
 // Middleware per parsing JSON
 app.use(express.json());
@@ -48,19 +40,18 @@ mongoose.connect(process.env.MONGODB_URI)
   })
   .catch(err => console.error('Errore di connessione a MongoDB:', err));
 
-// Rotte
+// Importa le rotte
 const authRoutes = require('./backend/routes/authRoutes'); 
 const travelRoutes = require('./backend/routes/travelRoutes');
 
-// Autenticazione
+// Configura le rotte
 app.use('/travelplanner/auth', authRoutes);
-// Gestione dei viaggi
 app.use('/travelplanner/travels', travelRoutes);
 
 // Gestione degli errori
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send({ error: 'something went wrong' });
+  res.status(500).send({ error: 'Something went wrong' });
 });
 
 // Avvio del server
