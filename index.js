@@ -10,7 +10,8 @@ const port = process.env.PORT || 5003;
 
 // Imposta gli allowed origins per CORS
 const allowedOrigins = [
-  'https://travel-planner-neon.vercel.app'
+  'https://travel-planner-neon.vercel.app',
+  'https://travel-planner-mati-webdevs-projects.vercel.app'
 ];
 
 // Middleware CORS globale
