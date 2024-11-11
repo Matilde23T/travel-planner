@@ -46,8 +46,8 @@ const authRoutes = require('./backend/routes/authRoutes');
 const travelRoutes = require('./backend/routes/travelRoutes');
 
 // Configura le rotte
-app.use('/travelplanner/auth', authRoutes);
-app.use('/travelplanner/travels', travelRoutes);
+app.use('/auth', authRoutes);
+app.use('/travels', travelRoutes);
 
 // Gestione degli errori
 app.use((err, req, res, next) => {
