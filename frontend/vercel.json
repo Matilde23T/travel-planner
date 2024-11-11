@@ -3,7 +3,7 @@
     "rewrites": [
       {
         "source": "/travelplanner/(.*)",
-        "destination": "https://travel-planner-791c.onrender.com/travelplanner/$1"
+        "destination": "https://travel-planner-791c.onrender.com/$1"
       }
     ]
    }
