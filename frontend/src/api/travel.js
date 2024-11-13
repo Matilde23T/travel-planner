@@ -61,3 +61,4 @@ export const deleteTravel = async (id) => {
     throw error.response.data;
   }
 };
+
