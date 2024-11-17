@@ -1,9 +1,10 @@
 {
-    "version": 2,
-    "rewrites": [
+  "version": 2,
+  "rewrites": [
       {
-        "source": "/travelplanner/(.*)",
-        "destination": "https://travel-planner-791c.onrender.com/$1"
+          "source": "/api/(.*)",
+          "destination": "https://travel-planner-791c.onrender.com/$1"
       }
-    ]
-   }
+  ]
+}
+
