@@ -91,9 +91,7 @@
  const confirmExit = () => {
   //popup di conferma
   if (window.confirm("Are you sure you want to quit?")) {
-     router.push({ name: 'dashboard' }).then(() => {
-      window.location.reload(); 
-    });
+     router.push({ name: 'dashboard' })
   }
 };
 
@@ -119,9 +117,7 @@ const submitForm = async () => {
     await createTravel(trip.value);
     alert('Travel plan successfully created!');
     // Naviga alla dashboard forzando l'aggiornamento della pagina
- router.push({ name: 'dashboard' }).then(() => {
-      window.location.reload(); 
-    });
+ router.push({ name: 'dashboard' });
     console.log('navigation completed');
 } catch (error) {
     console.error('Error in creating the travel plan:', error);
