@@ -1,35 +1,39 @@
-# frontend
+# ✏️ Travel Planner ✈️
 
-This template should help get you started developing with Vue 3 in Vite.
+## Presentation
 
-## Recommended IDE Setup
+The project presented is the final full stack development project of Star2impact.
+Travel planner was created to help in managing the planning of a trip. On the platform, accessible only through registration, the user has the opportunity to note down all the details of their trip while keeping everything at hand.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+##  Backend tool used
 
-## Customize configuration
+- Mongo DB Atlas: used for the creation of Mongo db databases and for the management and analysis of the data stored within it
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Postman: used for API development and testing 
 
-## Project Setup
+- bcrypt: library used for hashing passwords, to store securely in the database.
 
-```sh
-npm install
-```
+- jsonwebtoken: library used to create and verify authentication tokens
 
-### Compile and Hot-Reload for Development
+- CORS: controls requests made from one origin to another origin
 
-```sh
-npm run dev
-```
+## Frameworks used
 
-### Compile and Minify for Production
+- Vue.js
+- Bootstrapp
 
-```sh
-npm run build
-```
+## Map API 
 
-### Lint with [ESLint](https://eslint.org/)
+Map API used: [Open Street map](https://www.openstreetmap.org/)
 
-```sh
-npm run lint
-```
+## Hosting backend and frontend
+
+To host the backend I used Render while for the frontend Vercel
+
+## Try it!
+
+If you are trying to better plan your ideal trip I will leave you the link to the travel planner platform:[Travel planner](https://travel-planner-mati-webdevs-projects.vercel.app/)
+
+## Contact 
+
+For any questions you can write to this email: [matilde.webdev@gmail.com](matilde.webdev@gmail.com)
