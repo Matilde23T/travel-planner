@@ -31,10 +31,19 @@
                   required
                 />
                 <br>
+                <!--conferma della password-->
+                <input
+                v-if="!isLogin"
+                type="password"
+                v-model="confirmPassword"
+                placeholder="Confirm Password"
+                required
+              />
+              <br>
                 <button type="submit" :disabled="loading">{{ isLogin ? 'Login' : 'Register' }}</button>
                 <br>
                 <button type="button" @click="toggleForm">
-                  {{ isLogin ? 'switch to register' : 'switch to login' }}
+                  {{ isLogin ? 'Switch To Register' : 'Switch To Login' }}
                 </button>
               </form>
             </div>
@@ -65,6 +74,7 @@
   const name = ref('');
   const email = ref('');
   const password = ref('');
+  const confirmPassword = ref('');
   const isLogin = ref(true); 
   const error = ref(null);
   const loading = ref(false);
@@ -74,6 +84,12 @@
   const handleSubmit = async () => {
     loading.value = true;
     error.value = null; 
+     // Validazione per la conferma della password
+  if (!isLogin.value && password.value !== confirmPassword.value) {
+    error.value = "Passwords do not match.";
+    loading.value = false;
+    return;
+  }
     try {
       const userData = {
         ...(isLogin.value ? {} : { name: name.value }), 
@@ -86,13 +102,13 @@
         response = await loginUser(userData);
         // Salva il token al login
         localStorage.setItem('token', response.token); 
-        alert('Login avvenuto con successo!');
+        alert('Login successful!');
         console.log('Token:', response.token);
         // Redirect alla dashboard
         router.push('/dashboard'); 
       } else {
         response = await registerUser(userData);
-        alert('Registrazione avvenuta con successo!');
+        alert('Registration successful!');
         
        
         const loginResponse = await loginUser({ email: email.value, password: password.value });
@@ -109,6 +125,7 @@
   // Funzione per alternare tra Login e Registrazione
   const toggleForm = () => {
     isLogin.value = !isLogin.value;
+    error.value = null; // Reset errori quando si cambia modalità
   };
   </script>
   

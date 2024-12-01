@@ -7,7 +7,13 @@ const bcrypt = require('bcryptjs');
 // Registrazione utente
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, confirmPassword } = req.body;
+
+     // Verifica che password e confirmPassword siano uguali
+     if (password !== confirmPassword) {
+      return res.status(400).send({ error: 'Passwords do not match' });
+    }
+
     const user = new User({ name, email, password });
     await user.save();
     res.status(201).send({ message: 'user registered successfully!' });
