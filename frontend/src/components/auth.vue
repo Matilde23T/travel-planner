@@ -95,6 +95,7 @@
         ...(isLogin.value ? {} : { name: name.value }), 
         email: email.value,
         password: password.value,
+        confirmPassword: confirmPassword.value 
       };
   
       let response;
